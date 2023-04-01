@@ -6,6 +6,7 @@
 // 나이는 태어난 연도에 1살이며 1년마다 1씩 증가합니다.
 
 
+
 int solution(age) {
     const year = 2022 - age + 1;
     return year;
