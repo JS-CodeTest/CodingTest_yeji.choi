@@ -35,6 +35,7 @@ function solution(log) {
 }
 
 // 다른 풀이
+
 function solution(numLog) {
   const convert = {
     1: "w",
