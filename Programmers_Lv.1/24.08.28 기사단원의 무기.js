@@ -10,25 +10,22 @@
 // 1 ≤ power ≤ limit
 
 function solution(number, limit, power) {
-  var answer = 0;
-  let counter = 0;
+  let answer = 0;
 
   for (let i = 1; i <= number; i++) {
-    counter = 0;
-
-    for (let k = 1; k <= i / 2; k++) {
-      if (i % k === 0) {
-        counter += 1;
+    let divisor = 0;
+    for (let j = 1; j <= Math.sqrt(i); j++) {
+      if (i % j === 0) {
+        if (i / j === j) divisor += 1;
+        else divisor += 2;
+      }
+      if (divisor > limit) {
+        divisor = power;
+        break;
       }
     }
-
-    counter += 1;
-
-    if (counter > limit) {
-      answer += power;
-    } else {
-      answer += counter;
-    }
+    answer += divisor;
   }
+
   return answer;
 }
