@@ -26,6 +26,25 @@ function solution(babbling) {
   return answer;
 }
 
+// 다른 풀이
+function solution(babbling) {
+  const babblables = ["aya", "ye", "woo", "ma"];
+
+  return babbling.reduce((possible, babbl, index) => {
+    for (let i = 0; i < babblables.length; i += 1) {
+      if (babbl.includes(babblables[i].repeat(2))) return possible;
+    }
+
+    for (let i = 0; i < babblables.length; i += 1) {
+      babbl = babbl.split(babblables[i]).join(" ").trim();
+    }
+
+    if (babbl) return possible;
+
+    return (possible += 1);
+  }, 0);
+}
+
 // 다른 풀이 - 정규식
 function solution(babbling) {
   const regexp1 = /(aya|ye|woo|ma)\1+/;
